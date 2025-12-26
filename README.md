@@ -202,6 +202,8 @@ curl -i -X DELETE \
 
 ## 🎥 Demonstração do Comportamento
 
+[![Vídeo da demonstração](https://img.youtube.com/vi/q1Na-ZnYeis/0.jpg)](https://www.youtube.com/watch?v=q1Na-ZnYeis)
+
 ### REST (Pull)
 1. Abrir duas instâncias da aplicação
 2. Criar/deletar uma tarefa em uma instância
