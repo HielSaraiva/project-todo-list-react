@@ -68,13 +68,13 @@ mvc-architecture/
 ```
 mvp-architecture/
 ├── src/
-│ ├── config/ # Configurações (Supabase client)
+│ ├── config/         # Configurações (Supabase client)
 │ │ └── supabaseClient.js
-│ ├── model/ # Acesso a dados e API
+│ ├── model/          # Lógica de dados e comunicação com API
 │ │ └── todoModel.js
-│ ├── view/ # Componentes React (UI passiva)
+│ ├── view/           # Componentes React (UI)
 │ │ └── TodoView.jsx
-│ ├── presenter/ # Lógica de apresentação
+│ ├── presenter/     # Lógica de controle e coordenação
 │ │ └── todoPresenter.js
 │ ├── App.jsx
 │ └── main.jsx
@@ -113,7 +113,7 @@ Para ativar o modo reativo no Supabase:
 
 ---
 
-## ⚙️ Configuração e Instalação 
+## ⚙️ Configuração e Instalação (mvc-architecture)
 
 ### Pré-requisitos
 
