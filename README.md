@@ -1,3 +1,4 @@
+# TODO
 # 📋 ToDo App - Comparação de Arquiteturas Frontend
 
 ## 📚 Informações Acadêmicas
@@ -66,7 +67,18 @@ mvc-architecture/
 
 ```
 mvp-architecture/
-
+├── src/
+│ ├── config/         # Configurações (Supabase client)
+│ │ └── supabaseClient.js
+│ ├── model/          # Lógica de dados e comunicação com API
+│ │ └── todoModel.js
+│ ├── view/           # Componentes React (UI)
+│ │ └── TodoView.jsx
+│ ├── presenter/     # Lógica de controle e coordenação
+│ │ └── todoPresenter.js
+│ ├── App.jsx
+│ └── main.jsx
+└── package.json
 ```
 
 ```
@@ -122,6 +134,11 @@ cd project-todo-list-react
 cd mvc-architecture
 npm install
 ```
+ou
+```bash
+cd mvp-architecture
+npm install
+```
 
 Se houver problemas, execute:
 
@@ -132,7 +149,7 @@ npm install
 
 ### 3️⃣ Configurar variáveis de ambiente
 
-Crie um arquivo `.env` na raiz do projeto `mvc-architecture/`:
+Crie um arquivo `.env` na raiz do projeto `mvc-architecture/` ou `mvp-architecture/`:
 
 ```env
 VITE_SUPABASE_URL=<SUA_URL_DO_SUPABASE>
@@ -201,7 +218,6 @@ curl -i -X DELETE \
 ---
 
 ## 🎥 Demonstração do Comportamento
-
 [![Vídeo da demonstração](https://img.youtube.com/vi/q1Na-ZnYeis/0.jpg)](https://www.youtube.com/watch?v=q1Na-ZnYeis)
 
 ### REST (Pull)
