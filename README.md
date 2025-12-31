@@ -51,6 +51,8 @@ Cada implementação possui:
 
 ```
 mvc-architecture/
+├── assets/
+│   └── images/         # Screenshots dos códigos principais
 ├── src/
 │   ├── config/         # Configurações (Supabase client)
 │   │   └── supabaseClient.js
@@ -67,17 +69,19 @@ mvc-architecture/
 
 ```
 mvp-architecture/
+├── assets/
+│   └── images/         # Screenshots dos códigos principais
 ├── src/
-│ ├── config/         # Configurações (Supabase client)
-│ │ └── supabaseClient.js
-│ ├── model/          # Lógica de dados e comunicação com API
-│ │ └── todoModel.js
-│ ├── view/           # Componentes React (UI)
-│ │ └── TodoView.jsx
-│ ├── presenter/     # Lógica de controle e coordenação
-│ │ └── todoPresenter.js
-│ ├── App.jsx
-│ └── main.jsx
+│   ├── config/         # Configurações (Supabase client)
+│   │   └── supabaseClient.js
+│   ├── model/          # Lógica de dados e comunicação com API
+│   │   └── todoModel.js
+│   ├── view/           # Componentes React (UI)
+│   │   └── TodoView.jsx
+│   ├── presenter/     # Lógica de controle e coordenação
+│   │   └── todoPresenter.js
+│   ├── App.jsx
+│   └── main.jsx
 └── package.json
 ```
 
@@ -113,7 +117,26 @@ Para ativar o modo reativo no Supabase:
 
 ---
 
-## ⚙️ Configuração e Instalação (mvc-architecture)
+## 📦 Entregáveis
+
+Este projeto contém os seguintes materiais:
+
+### 📸 Screenshots dos Códigos
+- **MVC Architecture:** [mvc-architecture/assets/images/](mvc-architecture/assets/images/)
+- **MVP Architecture:** [mvp-architecture/assets/images/](mvp-architecture/assets/images/)
+- **MVVM Architecture:** [mvvm-architecture/assets/images/](mvvm-architecture/assets/images/)
+
+### 🎬 Vídeo de Demonstração
+- **Vídeo:** [video/Engenharia de Software - Arquiteturas de Frontend e Backend.mp4](video/Engenharia%20de%20Software%20-%20Arquiteturas%20de%20Frontend%20e%20Backend.mp4)
+- Demonstra o comportamento das arquiteturas REST e Reativa
+
+### 📄 Relatório Técnico
+- **Documento:** [docs/Relatório Técnico - Engenharia de Software.pdf](docs/Relat%C3%B3rio%20T%C3%A9cnico%20-%20Engenharia%20de%20Software.pdf)
+- Contém análise completa das arquiteturas implementadas
+
+---
+
+## ⚙️ Configuração e Instalação
 
 ### Pré-requisitos
 
@@ -130,13 +153,24 @@ cd project-todo-list-react
 
 ### 2️⃣ Instalar dependências
 
+Escolha uma das arquiteturas para testar:
+
 ```bash
 cd mvc-architecture
 npm install
 ```
+
 ou
+
 ```bash
 cd mvp-architecture
+npm install
+```
+
+ou
+
+```bash
+cd mvvm-architecture
 npm install
 ```
 
@@ -149,7 +183,7 @@ npm install
 
 ### 3️⃣ Configurar variáveis de ambiente
 
-Crie um arquivo `.env` na raiz do projeto `mvc-architecture/` ou `mvp-architecture/`:
+Crie um arquivo `.env` na raiz da arquitetura escolhida (`mvc-architecture/`, `mvp-architecture/` ou `mvvm-architecture/`):
 
 ```env
 VITE_SUPABASE_URL=<SUA_URL_DO_SUPABASE>
@@ -218,7 +252,10 @@ curl -i -X DELETE \
 ---
 
 ## 🎥 Demonstração do Comportamento
-[![Vídeo da demonstração](https://img.youtube.com/vi/q1Na-ZnYeis/0.jpg)](https://www.youtube.com/watch?v=q1Na-ZnYeis)
+
+https://github.com/user-attachments/assets/seu-video-id-aqui
+
+> **Obs.:** Para assistir o vídeo em maior qualidade, acesse: [https://www.youtube.com/watch?v=q1Na-ZnYeis](https://www.youtube.com/watch?v=q1Na-ZnYeis)
 
 ### REST (Pull)
 1. Abrir duas instâncias da aplicação
