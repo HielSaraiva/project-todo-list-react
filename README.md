@@ -87,7 +87,20 @@ mvp-architecture/
 
 ```
 mvvm-architecture/
-
+├── assets/
+│   └── images/         # Screenshots dos códigos principais
+├── src/
+│   ├── config/         # Configurações (Supabase client)
+│   │   └── supabaseClient.js
+│   ├── model/          # Lógica de dados e comunicação com API
+│   │   └── todoModel.js
+│   ├── view/           # Componentes React (UI)
+│   │   └── TodoView.jsx
+│   ├── viewModel/     # Lógica de controle e coordenação
+│   │   └── todoViewModel.js
+│   ├── App.jsx
+│   └── main.jsx
+└── package.json
 ```
 
 ---
