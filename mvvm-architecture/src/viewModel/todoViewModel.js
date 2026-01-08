@@ -1,30 +1,56 @@
-import { useState, useEffect } from 'react';
-import * as todoModel from '../model/todoModel.js';
+import { useState, useEffect } from "react";
+import { supabase } from "../config/supabaseClient.js";
 
 export function useTodoViewModel() {
     const [todos, setTodos] = useState([]);
-    const [title, setTitle] = useState('');
+    const [title, setTitle] = useState("");
 
-    async function loadTodos() {
-        const data = await todoModel.getTodos();
-        setTodos(data || []);
+    // Função que busca todos do banco
+    async function fetchTodos() {
+        const data = await supabase
+            .from("todos")
+            .select("*")
+            .order("id");
+        setTodos(data.data ?? []);
     }
 
     async function handleAdd() {
         if (!title.trim()) return;
-        await todoModel.addTodo(title);
-        setTitle('');
-        loadTodos();
+        await supabase.from("todos").insert({ title });
+        setTitle("");
     }
 
     async function handleDelete(id) {
-        await todoModel.deleteTodo(id);
-        loadTodos();
+        await supabase.from("todos").delete().eq("id", id);
     }
 
     useEffect(() => {
         // eslint-disable-next-line react-hooks/set-state-in-effect
-        loadTodos();
+        fetchTodos();
+
+        const subscription = supabase
+            .channel("realtime-todos")
+            .on(
+                "postgres_changes",
+                { event: "INSERT", schema: "public", table: "todos" },
+                (payload) => {
+                    setTodos((prev) => [...prev, payload.new]);
+                }
+            )
+            .on(
+                "postgres_changes",
+                { event: "DELETE", schema: "public", table: "todos" },
+                (payload) => {
+                    setTodos((prev) =>
+                        prev.filter((todo) => todo.id !== payload.old.id)
+                    );
+                }
+            )
+            .subscribe();
+        
+        return () => {
+            supabase.removeChannel(subscription);
+        };
     }, []);
 
     return {
@@ -32,6 +58,6 @@ export function useTodoViewModel() {
         title,
         setTitle,
         handleAdd,
-        handleDelete
+        handleDelete,
     };
 }
